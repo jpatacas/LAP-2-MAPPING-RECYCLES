@@ -1,15 +1,162 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Display a popup on click</title>
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-<link rel="stylesheet" href="./index.css">
-<script defer src="./index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY MAP</title>
+    <link rel="stylesheet" href="./assets/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit&family=Lobster&family=Mukta:wght@300&family=Rampart+One&family=Shantell+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <!-- <script defer src="./map.js"></script> -->
 </head>
 <body>
-<div id="map"></div>
+    <nav>
+        <div class="logo-container">
+            <a href="index.html" id="logo">
+                <img src="./assets/images/Screenshot 2023-05-10 at 11.28.10.png" alt="Logo" class="logo-img">
+                MyMAP<br><span class="somuch">Discovery in your community</span>
+            </a>
+        </div>
+        <div class="search-container">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Start your search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <a href="login.html" id="sign-in">Sign In/Up</a>
+    </nav>
+    
+    <div id="socials" class="socials">
+        
+    <div class="slideshow-container fade">
+    
+        
+        <div class="Containers">
+          
+          <div class="Info"><h1><a href="https://example.com">Community Announcements</a></h1></div>
+        </div>
+      
+        <div class="Containers">
+          
+        
+          <div class="Info"><h1><a href="https://example.com">Community Spotlight</a></h1></div>
+        </div>
+      
+        <div class="Containers">
+          
+          
+          <div class="Info"><h1><a href="https://example.com">Community Events</a></h1></div>
+        </div>
+    
+        <div class="Containers">
+           
+          
+            <div class="Info"><h1><a href="https://example.com">Contact Information & FAQ's</a></h1></div>
+          </div>
+      
+        
+        <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      
+      <div style="text-align:center">
+        <span class="dots" onclick="currentSlide(1)"></span>
+        <span class="dots" onclick="currentSlide(2)"></span>
+        <span class="dots" onclick="currentSlide(3)"></span>
+        <span class="dots" onclick="currentSlide(4)"></span>
+      </div> 
+    </div>
+    
+    <script>
+        var slidePosition = 1;
+    SlideShow(slidePosition);
+    
+    
+    function plusSlides(n) {
+      SlideShow(slidePosition += n);
+    }
+    
+    
+    function currentSlide(n) {
+      SlideShow(slidePosition = n);
+    }
+    
+    function SlideShow(n) {
+      var i;
+      var slides = document.getElementsByClassName("Containers");
+      var circles = document.getElementsByClassName("dots");
+      if (n > slides.length) {slidePosition = 1}
+      if (n < 1) {slidePosition = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < circles.length; i++) {
+          circles[i].className = circles[i].className.replace(" enable", "");
+      }
+      slides[slidePosition-1].style.display = "block";
+      circles[slidePosition-1].className += " enable";
+    } 
+    </script>
+
+    <div id="main-container">
+        <div id="box1" class="fade-in">
+            <div class="description" onclick="navigateTo('map.html');"> <h4><u>Tottenham Hotspur Stadium tour</u></h4> 
+                
+                Opened at the start of the 2019 Premier League Season at a reported cost of £1 billion (yikes!), Tottenham Hotspur’s ground also plays host to several NFL UK games every year.
+            </div>
+        </div>
+
+        <div id="box2" class="fade-in">
+            <div class="description" onclick="navigateTo('map.html');"><h4><u>Tottenham Hale Canal Walk / Lee Valley Walk</u></h4> 
+                
+                A short two-minute walk from Tottenham Hale Tube station brings you to the canal and the Lee Valley walk. To the north, you can walk and bike along the canal unencumbered to the likes of Enfield and picturesque Waltham Abbey.
+            </div>
+        </div>
+
+        <div id="box3" class="fade-in">
+            <div class="description" onclick="navigateTo('map.html');"><h4><u>The Bluecoats Pub</u></h4> 
+                
+                A former girls school built in the 1830s that has now been turned into a beer and burger bar, this is a family friendly pub that has a whole heap of craft beers on tap (up to 20 different beers at any one time).
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <div id="box4" class="fade-in">
+            <div class="description1" onclick="navigateTo('map.html');"><h4><u>Chuku’s Nigerian Tapas</u></h4> 
+                
+                Reputably the world’s first Nigerian tapas restaurant has arrived in Tottenham, north London via Lagos. Specialising in delicious small plates ideal for sharing and run by brother and sister Davido and Dice Ailes.
+            </div>
+        </div>
+
+        <div id="box5" class="fade-in">
+            <div class="description1" onclick="navigateTo('map.html');"><h4><u>Bruce Castle Museum</u></h4> 
+                
+                A castle…in Tottenham! Although it sounds like something straight out of Batman, Bruce Castle Museum in Tottenham is an elegant 16th century Grade I listed manor house which now houses a free to visit museum and local archives, set amongst 20 acres of green park land..
+            </div>
+        </div>
+        <div id="box6" class="fade-in">
+            <div class="description1" onclick="navigateTo('map.html');"><h4><u>Ferry Boat Inn, Tottenham Hale</u></h4> 
+                
+                Situated on the edge of the Walthamstow Wetlands, the Ferry Boat in Tottenham Hale is a nice afternoon spot (it also happens to be our local pub).
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <script>
+        function navigateTo(url) {
+            document.body.classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+
+
 </body>
 </html>
